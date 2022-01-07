@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
 public class ServersMessage {
-    private ArrayList<String> servers
+    private ArrayList<String> servers;
+    
 }
