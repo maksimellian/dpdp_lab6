@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ServersMessage {
-    private 
+    private ArrayList<String> servers
 }
