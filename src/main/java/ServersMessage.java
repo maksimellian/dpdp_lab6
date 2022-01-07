@@ -6,6 +6,7 @@ public class ServersMessage {
         this.urls = urls;
     }
 
-    public ArrayList<String> urls 
-
+    public ArrayList<String> getUrls() {
+        return this.urls;
+    }
 }
