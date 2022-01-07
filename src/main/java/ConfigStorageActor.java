@@ -1,3 +1,3 @@
-public class ConfigStorageActor {
-    
+public class ConfigStorageActor extends AbstractActor {
+
 }
