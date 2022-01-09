@@ -4,7 +4,7 @@ import akka.http.javadsl.server.Route;
 
 import java.time.Duration;
 
-import static akka.http.javadsl.server.Directives.route;
+import static akka.http.javadsl.server.Directives.*;
 
 public class Router {
     private final ActorRef configActor;
@@ -17,6 +17,12 @@ public class Router {
         this.http = http;
     }
     public Route createRoute() {
-        return route()
+        return route(
+                get(() ->
+                        parameter(URL, url -> parameter(COUNT, count -> {
+                            if 
+                        }))
+                )
+        );
     }
 }
