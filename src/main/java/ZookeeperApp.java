@@ -15,6 +15,7 @@ public class ZookeeperApp {
         ActorRef configStorageActor = system.actorOf(Props.create(ConfigStorageActor.class));
         if (args.length != 0) {
             PORT = Integer.parseInt(args[0]);
+            
         }
     }
 }
