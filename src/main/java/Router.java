@@ -28,7 +28,7 @@ public class Router {
                                 return completeWithFuture(
                                         Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
                                                 .thenApply(serverUrl -> (String)serverUrl)
-                                                .thenCompose((serverUrl) -> ))
+                                                .thenCompose((serverUrl) -> this.http.singleRequest()))
                             }
                         }))
                 )
