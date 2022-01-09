@@ -30,7 +30,7 @@ public class Router {
         return link;
     }
 
-    public 
+    public void sendToRandomServer
 
     public Route createRoute() {
         return route(
