@@ -9,7 +9,7 @@ public class ConfigStorageActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(ServersMessage.class, msg -> this.servers = msg.getUrls())
-                .match()
+                .match(EmptyServersMessage.class, msg ->)
                 .build();
     }
 }
