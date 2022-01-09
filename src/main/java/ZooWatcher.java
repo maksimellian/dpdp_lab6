@@ -11,7 +11,7 @@ public class ZooWatcher implements Watcher {
     private final String HOST = "127.0.0.1";
     private final String PORT = "2181";
     private final String ADDRESS = "127.0.0.1:2181";
-    private final String PATH = "/servers";
+    private final String PATH = "/servers/s";
     private final int TIMEOUT = 5000;
     private final ActorRef configActor;
     private final ZooKeeper zoo;
