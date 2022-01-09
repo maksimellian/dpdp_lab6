@@ -1,5 +1,6 @@
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.server.Route;
 
 import java.time.Duration;
 
@@ -13,4 +14,5 @@ public class Router {
         this.configActor = configActor;
         this.http = http;
     }
+    public Route createRoute
 }
