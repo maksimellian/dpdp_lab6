@@ -18,7 +18,7 @@ public class ZookeeperApp {
         if (args.length != 0) {
             PORT = Integer.parseInt(args[0]);
             final Http http = Http.get(system);
-            final ActorMaterializer materializer =
+            final ActorMaterializer materializer = ActorMaterializer.create(system);
         }
     }
 }
