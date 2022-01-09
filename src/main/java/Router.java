@@ -23,6 +23,8 @@ public class Router {
                         parameter(URL, url -> parameter(COUNT, count -> {
                             if (Integer.parseInt(count) == 0){
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
+                            } else {
+                                
                             }
                         }))
                 )
