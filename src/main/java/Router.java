@@ -4,6 +4,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.Query;
 import akka.http.javadsl.model.Uri;
 import akka.http.javadsl.server.Route;
+import akka.japi.Pair;
 import akka.pattern.Patterns;
 
 import java.time.Duration;
@@ -22,7 +23,9 @@ public class Router {
     }
 
     public String createUrl(String serverUrl, String url, int count) {
-        String link = String.valueOf(Uri.create(serverUrl).query(Query.create()))
+        String link = String.valueOf(Uri.create(serverUrl).query(Query.create(
+                Pair.create()
+        )))
     }
 
     public Route createRoute() {
