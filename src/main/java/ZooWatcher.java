@@ -31,7 +31,6 @@ public class ZooWatcher implements Watcher {
     public void process(WatchedEvent event) {
         List<String> servers;
         try {
-            System.out.println("Get children " + PATH.substring(0, PATH.length() - 2));
             servers = this.zoo.getChildren(PATH.substring(0, PATH.length() - 2), this);
             ArrayList<String> urlsForAkka = new ArrayList<String>();
             for (String server: servers) {
