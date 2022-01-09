@@ -13,11 +13,16 @@ public class ZooWatcher implements Watcher {
     private final int TIMEOUT = 5000;
     private final ActorRef configActor;
     private final ZooKeeper zoo;
+    private int activePort;
 
 
-    public ZooWatcher(ActorRef configActor) throws IOException {
+    public ZooWatcher(ActorRef configActor, int port) throws IOException {
+        String zooAddress = "http://" + HOST + ":" + this.activePort;
+        System.out.println("z");
         this.configActor = configActor;
         this.zoo = new ZooKeeper(ADDRESS, TIMEOUT, this);
+        this.activePort = port;
+        this.zoo.create();
     }
 
     @Override
