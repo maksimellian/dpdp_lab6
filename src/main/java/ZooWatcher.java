@@ -18,7 +18,6 @@ public class ZooWatcher implements Watcher {
     public ZooWatcher(ActorRef configActor) throws IOException {
         this.configActor = configActor;
         this.zoo = new ZooKeeper(ADDRESS, TIMEOUT, this);
-
     }
 
     @Override
