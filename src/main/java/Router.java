@@ -26,6 +26,8 @@ public class Router {
         String link = String.valueOf(Uri.create(serverUrl).query(Query.create(
                 Pair.create(URL, url),
                 Pair.create(COUNT, String.valueOf(count - 1)))));
+        System.out.println("router line 29 " + link);
+        return link;
     }
 
     public Route createRoute() {
