@@ -28,6 +28,7 @@ public class Router {
                             if (Integer.parseInt(count) == 0){
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
                             } else {
+                                // send to random server
                                 return completeWithFuture(
                                         Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
                                                 .thenApply(serverUrl -> (String)serverUrl)
