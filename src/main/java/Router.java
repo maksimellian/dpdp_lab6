@@ -4,6 +4,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.Query;
 import akka.http.javadsl.model.Uri;
 import akka.http.javadsl.server.Route;
+import akka.http.javadsl.server.directives.RouteAdapter;
 import akka.japi.Pair;
 import akka.pattern.Patterns;
 
@@ -30,7 +31,7 @@ public class Router {
         return link;
     }
 
-    public void sendToRandomServer(String url, Integer count) {
+    public RouteAdapter sendToRandomServer(String url, String count) {
         return completeWithFuture(
                 Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
                         .thenApply(serverUrl -> (String)serverUrl)
