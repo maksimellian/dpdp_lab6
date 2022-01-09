@@ -24,7 +24,8 @@ public class Router {
 
     public String createUrl(String serverUrl, String url, int count) {
         String link = String.valueOf(Uri.create(serverUrl).query(Query.create(
-                Pair.create(URL, url)
+                Pair.create(URL, url),
+                Pair.create()
         )))
     }
 
