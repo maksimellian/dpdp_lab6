@@ -23,7 +23,7 @@ public class ZookeeperApp {
     private static final String URL = "url";
     private static final String COLON = ":";
     private final static Duration TIMEOUT = Duration.ofSeconds(5);
-    private static void main(String[] args) throws IOException, InterruptedException, KeeperException {
+    public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
         final ActorSystem system = ActorSystem.create("routes");
         ActorRef configStorageActor = system.actorOf(Props.create(ConfigStorageActor.class));
         port = Integer.parseInt(args[0]);
