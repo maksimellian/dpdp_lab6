@@ -25,7 +25,8 @@ public class Router {
                             if (Integer.parseInt(count) == 0){
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
                             } else {
-                                return completeWithFuture(Patterns.ask(this.confActor, new EmptyServersMessage(), TIMEOUT))
+                                return completeWithFuture(
+                                        Patterns.ask(this.confActor, new EmptyServersMessage(), TIMEOUT))
                                         .
                             }
                         }))
