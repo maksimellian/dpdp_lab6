@@ -27,9 +27,9 @@ public class ZookeeperApp {
         final ActorSystem system = ActorSystem.create("routes");
         ActorRef configStorageActor = system.actorOf(Props.create(ConfigStorageActor.class));
         port = Integer.parseInt(args[0]);
+        new ZooWatcher(configStorageActor, port);
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        new ZooWatcher(configStorageActor, port);
         final Flow<HttpRequest, HttpResponse, NotUsed> flow = new Router(configStorageActor, http)
                 .createRoute()
                 .flow(system, materializer);
