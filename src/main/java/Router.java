@@ -21,7 +21,7 @@ public class Router {
     }
 
     public String createUrl(String serverUrl, String url, int count) {
-        String link = String.valueOf(Uri.create())
+        String link = String.valueOf(Uri.create(serverUrl))
     }
 
     public Route createRoute() {
