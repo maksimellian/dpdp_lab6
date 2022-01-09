@@ -21,6 +21,7 @@ public class ZookeeperApp {
     private static final String HOST = "localhost";
     private static int port;
     private static final String URL = "url";
+    private static final String COLON = ":";
     private final static Duration TIMEOUT = Duration.ofSeconds(5);
     private static void main(String[] args) throws IOException, InterruptedException, KeeperException {
         final ActorSystem system = ActorSystem.create("routes");
@@ -34,5 +35,8 @@ public class ZookeeperApp {
                 .flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 flow, ConnectHttp.toHost(HOST, port), materializer);
+        System.out.println("Servers listens on " + HOST + COLON + port);
+        System.in.read();
+        
     }
 }
