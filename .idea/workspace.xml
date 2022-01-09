@@ -59,6 +59,7 @@
     <configuration name="ZookeeperApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ZookeeperApp" />
       <module name="dpdp_lab6" />
+      <option name="PROGRAM_PARAMETERS" value="8080" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
