@@ -48,12 +48,7 @@ public class Router {
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
                             } else {
                                 // send to random server
-                                return completeWithFuture(
-                                        Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
-                                                .thenApply(serverUrl -> (String)serverUrl)
-                                                .thenCompose((serverUrl) ->
-                                                        this.http.singleRequest(HttpRequest
-                                                                .create(this.createUrl(serverUrl, url, Integer.parseInt(count))))));
+                                sendToRandomServer();
                             }
                         }))
                 )
