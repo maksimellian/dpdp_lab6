@@ -20,7 +20,7 @@ public class Router {
     }
 
     public String createUrl(String serverUrl, String url, int count) {
-        String link = 
+        String link = String.valueOf()
     }
 
     public Route createRoute() {
