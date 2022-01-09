@@ -19,7 +19,7 @@ public class Router {
         this.http = http;
     }
 
-    public String createUrl(String serverUrl)
+    public String createUrl(String serverUrl, String url, count)
 
     public Route createRoute() {
         return route(
