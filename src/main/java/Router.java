@@ -1,5 +1,6 @@
 import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.server.Route;
 
 import java.time.Duration;
@@ -21,7 +22,7 @@ public class Router {
                 get(() ->
                         parameter(URL, url -> parameter(COUNT, count -> {
                             if (Integer.parseInt(count) == 0){
-                                return completeWithFuture(this.http.singleRequest())
+                                return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)))
                             }
                         }))
                 )
