@@ -2,6 +2,7 @@ import akka.actor.ActorRef;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 
 import java.time.Duration;
 
@@ -24,7 +25,7 @@ public class Router {
                             if (Integer.parseInt(count) == 0){
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
                             } else {
-                                return completeWithFuture()
+                                return completeWithFuture(Patterns.ask())
                             }
                         }))
                 )
