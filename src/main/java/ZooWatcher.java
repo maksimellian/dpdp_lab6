@@ -19,11 +19,11 @@ public class ZooWatcher implements Watcher {
 
 
     public ZooWatcher(ActorRef configActor, int port) throws IOException, InterruptedException, KeeperException {
-        System.out.println("akkaAddress is " + akkaAddress);
         this.configActor = configActor;
         this.zoo = new ZooKeeper(ADDRESS, TIMEOUT, this);
         this.activePort = port;
         String akkaAddress = "http://" + HOST + ":" + this.activePort;
+        System.out.println("akkaAddress is " + akkaAddress);
         this.zoo.create(PATH, akkaAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
     }
 
