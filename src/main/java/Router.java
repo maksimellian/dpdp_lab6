@@ -30,7 +30,7 @@ public class Router {
         return link;
     }
 
-    public void sendToRandomServer
+    public void sendToRandomServer(String url)
 
     public Route createRoute() {
         return route(
