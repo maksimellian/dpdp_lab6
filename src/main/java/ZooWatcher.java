@@ -1,7 +1,5 @@
 import akka.actor.ActorRef;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -17,13 +15,13 @@ public class ZooWatcher implements Watcher {
     private int activePort;
 
 
-    public ZooWatcher(ActorRef configActor, int port) throws IOException {
+    public ZooWatcher(ActorRef configActor, int port) throws IOException, InterruptedException, KeeperException {
         String akkaAddress = "http://" + HOST + ":" + this.activePort;
         System.out.println("z");
         this.configActor = configActor;
         this.zoo = new ZooKeeper(ADDRESS, TIMEOUT, this);
         this.activePort = port;
-        this.zoo.create(PATH, akkaAddress.getBytes(), );
+        this.zoo.create(PATH, akkaAddress.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
     }
 
     @Override
