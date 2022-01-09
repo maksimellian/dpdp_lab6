@@ -21,7 +21,7 @@ public class Router {
                 get(() ->
                         parameter(URL, url -> parameter(COUNT, count -> {
                             if (Integer.parseInt(count) == 0){
-                                return completeWithFuture(this.http.singleRequest())
+                                return completeWithFuture(this.http.singleRequest(Http.createR))
                             }
                         }))
                 )
