@@ -27,7 +27,7 @@ public class Router {
                             } else {
                                 return completeWithFuture(
                                         Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
-                                                .thenApply(serverUrl -> (String))
+                                                .thenApply(serverUrl -> (String)serverUrl)
                             }
                         }))
                 )
