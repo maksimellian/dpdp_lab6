@@ -23,7 +23,7 @@ public class ZooWatcher implements Watcher {
         this.configActor = configActor;
         this.zoo = new ZooKeeper(ADDRESS, TIMEOUT, this);
         this.activePort = port;
-        this.zoo.create(PATH, );
+        this.zoo.create(PATH, akkaAddress.getBytes(), );
     }
 
     @Override
