@@ -48,7 +48,7 @@ public class Router {
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
                             } else {
                                 // send to random server
-                                sendToRandomServer();
+                                sendToRandomServer(url, count);
                             }
                         }))
                 )
