@@ -30,7 +30,10 @@ public class ZooWatcher implements Watcher {
         List<String> servers;
         try {
             servers = this.zoo.getChildren(PATH.substring(0, PATH.length() - 2), this);
-            ArrayList<String> urls = new ArrayList<String>();
+            ArrayList<String> urlsForAkka = new ArrayList<String>();
+            for (String server: servers) {
+                
+            }
         } catch (KeeperException | InterruptedException e) {
 
         }
