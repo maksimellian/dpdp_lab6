@@ -2,6 +2,8 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.actor.dsl.Creators;
+import akka.http.javadsl.Http;
+import akka.stream.ActorMaterializer;
 
 import java.time.Duration;
 
@@ -15,7 +17,8 @@ public class ZookeeperApp {
         ActorRef configStorageActor = system.actorOf(Props.create(ConfigStorageActor.class));
         if (args.length != 0) {
             PORT = Integer.parseInt(args[0]);
-            
+            final Http http = Http.get(system);
+            final ActorMaterializer materializer =
         }
     }
 }
