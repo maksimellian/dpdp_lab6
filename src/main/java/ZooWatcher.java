@@ -39,7 +39,8 @@ public class ZooWatcher implements Watcher {
             }
             Patterns.ask(this.configActor, new ServersMessage(urlsForAkka), TIMEOUT);
         } catch (KeeperException | InterruptedException e) {
-
+            e.printStackTrace();
+            System.exit(1);
         }
     }
 }
