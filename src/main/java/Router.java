@@ -35,7 +35,7 @@ public class Router {
     public CompletionStage<HttpResponse> sendToRandomServer(String url, String count) {
          return Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
                 .thenApply(serverUrl -> (String)serverUrl)
-                .thenCompose((serverUrl) ->
+                .thenCompose(serverUrl ->
                         this.http.singleRequest(HttpRequest
                                 .create(this.createUrl(serverUrl, url, Integer.parseInt(count)))));
     }
