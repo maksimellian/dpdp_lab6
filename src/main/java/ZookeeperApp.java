@@ -38,6 +38,5 @@ public class ZookeeperApp {
         System.out.println("Servers listens on " + HOST + COLON + port);
         System.in.read();
         binding.thenCompose(ServerBinding::unbind)
-                .thenAccept(unbound -> )
     }
 }
