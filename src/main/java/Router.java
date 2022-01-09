@@ -24,7 +24,7 @@ public class Router {
                             if (Integer.parseInt(count) == 0){
                                 return completeWithFuture(this.http.singleRequest(HttpRequest.create(url)));
                             } else {
-                                return 
+                                return completeWithFuture()
                             }
                         }))
                 )
