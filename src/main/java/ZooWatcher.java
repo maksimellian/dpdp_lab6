@@ -1,9 +1,11 @@
 import akka.actor.ActorRef;
+import akka.pattern.Patterns;
 import org.apache.zookeeper.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ZooWatcher implements Watcher {
     private final String HOST = "127.0.0.1";
@@ -35,6 +37,7 @@ public class ZooWatcher implements Watcher {
                 String url = new String(this.zoo.getData(PATH.substring(0, PATH.length() - 1) + server, false, null));
                 urlsForAkka.add(url);
             }
+            Patterns.ask(this.configActor, new ServersMessage(urlsForAkka), TIMEOUT);
         } catch (KeeperException | InterruptedException e) {
 
         }
