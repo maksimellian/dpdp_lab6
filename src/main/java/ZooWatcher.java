@@ -17,7 +17,7 @@ public class ZooWatcher implements Watcher {
 
     public ZooWatcher(ActorRef configActor, int port) throws IOException, InterruptedException, KeeperException {
         String akkaAddress = "http://" + HOST + ":" + this.activePort;
-        System.out.println("z");
+        System.out.println("akkaAddress is " + akkaAddress);
         this.configActor = configActor;
         this.zoo = new ZooKeeper(ADDRESS, TIMEOUT, this);
         this.activePort = port;
