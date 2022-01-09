@@ -30,7 +30,14 @@ public class Router {
         return link;
     }
 
-    public void sendToRandomServer(String url, Integer cou)
+    public void sendToRandomServer(String url, Integer count) {
+        return completeWithFuture(
+                Patterns.ask(this.configActor, new EmptyServersMessage(), TIMEOUT)
+                        .thenApply(serverUrl -> (String)serverUrl)
+                        .thenCompose((serverUrl) ->
+                                this.http.singleRequest(HttpRequest
+                                        .create(this.createUrl(serverUrl, url, Integer.parseInt(count))))));
+    }
 
     public Route createRoute() {
         return route(
