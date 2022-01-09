@@ -20,7 +20,7 @@ public class Router {
         return route(
                 get(() ->
                         parameter(URL, url -> parameter(COUNT, count -> {
-                            if 
+                            if (Integer.parseInt(count) == 0)
                         }))
                 )
         );
